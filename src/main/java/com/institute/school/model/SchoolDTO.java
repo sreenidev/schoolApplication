@@ -6,6 +6,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@Table (name = "user")
 public class SchoolDTO {
     private String name;
     private int age;
@@ -23,7 +24,7 @@ public class SchoolDTO {
     private String statusMessage;
     private String updateMessage;
     private int updateCount;
-    @Embedded
+    @OneToOne(mappedBy = "schoolDetails", cascade = CascadeType.MERGE)
     private AdminDTO statusDetails;
 
     public SchoolDTO(){

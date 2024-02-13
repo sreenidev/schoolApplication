@@ -7,9 +7,12 @@ import lombok.Data;
 @Data
 @Table(name = "admin")
 public class AdminDTO {
-    private String name;
     @Id
-    private Long phone;
+    @GeneratedValue
+    @Column (name = "s.no")
+    private Long id;
+    private String userName;
+    private Long userPhone;
     private String status;
     private String statusMessage;
     @OneToOne
